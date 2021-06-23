@@ -30,6 +30,14 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+// Error handling Middleware
+app.use((err, req, res, next) => {
+  if (process.env.BUILD === 'dev') {
+    console.error(err)
+  }
+  res.redirect('/')
+})
+
 // Attach routes to server
 require('./routes/index.js')(app)
 require('./routes/plugin.js')(app)
