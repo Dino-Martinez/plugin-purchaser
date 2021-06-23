@@ -11,6 +11,20 @@
 </section>
 
 <section>
+  <form class="" action="/plugins/{{plugin._id}}/purchase" method="POST">
+    <script class="stripe-button" src="https://checkout.stripe.com/checkout.js"
+    data-key={{PUBLIC_STRIPE_API_KEY}}
+    data-amount={{plugin.price}}
+    data-name='Plugin Purchaser'
+    data-description={{plugin.name}}
+    data-image='https://stripe.com/img/documentation/checkout/marketplace.png'
+    data-locale='auto'
+    data-zip-code='true'
+    charset="utf-8"></script>
+  </form>
+</section>
+
+<section>
   <form class="" id="edit-plugin" action="/plugins/{{plugin._id}}?_method=PUT" method="POST">
     <div class="form-group">
       <label for="name">Name</label>

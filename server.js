@@ -21,6 +21,9 @@ db.once('open', () => {
   console.log('Connected to DB')
 })
 
+// connect stripe api
+app.locals.PUBLIC_STRIPE_API_KEY = process.env.PUBLIC_STRIPE_API_KEY
+
 // override with POST having ?_method=DELETE or ?_method=PUT
 app.use(override('_method'))
 

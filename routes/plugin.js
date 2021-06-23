@@ -19,6 +19,24 @@ module.exports = app => {
     })
   })
 
+  // PURCHASE PLUGIN
+  app.post('/plugins/:id/purchase', (req,res) => {
+      let stripe = require("stripe")(process.env.PRIVATE_STRIPE_API_KEY)
+
+      let token = req.body.stripeToken
+
+      Plugin.findById(req.params.id).lean().then(plugin => {
+        const charge = stripe.charges.create({
+          amount: plugin.price,
+          currency: 'usd',
+          description: plugin.description,
+          source: token
+        }).then(()=>{
+          res.redirect(`/plugins/${req.params.id}`)
+        })
+      })
+   })
+
   // NEW PLUGIN
   app.get('/plugins/new', (req, res) => {
     res.render('plugins-new')
@@ -26,6 +44,7 @@ module.exports = app => {
 
   // CREATE PLUGIN
   app.post('/plugins', (req, res) => {
+    req.body.price = req.body.price * 100
     const plugin = new Plugin(req.body)
     plugin.save().then(doc => {
       res.send({plugin: doc})
