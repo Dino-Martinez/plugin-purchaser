@@ -2,7 +2,6 @@ const buttons = $('.card-btn')
 const descriptions = $('.card-description')
 
 descriptions.each(function() {
-  console.log($(this).height())
   $.data(this, "realHeight", $(this).height())
   $.data(this, "toggled", false)
 }).css({ overflow: "hidden", height: "0px" })
@@ -10,7 +9,6 @@ descriptions.each(function() {
 buttons.click(function() {
   const degree = 180
   $(this).toggleClass('rotate')
-console.log($(this).height())
   var description = $(this).prev(".card-description")
   if (description.data("toggled")) {
     description.css('height', '0')
@@ -22,9 +20,10 @@ console.log($(this).height())
   }
 })
 
-const newForm = document.querySelector('#new-plugin')
+const newForm = document.querySelector('#new-plugin') ?? document.querySelector('#edit-plugin')
 
 if (newForm) {
+  console.log('yup')
   newForm.addEventListener('submit', function(e) {
     e.preventDefault()
     let plugin = {}
