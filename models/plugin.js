@@ -1,15 +1,15 @@
-const mongoose = require('mongoose'),
-  Schema = mongoose.Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const PluginSchema = new Schema(
   {
     name: { type: String, required: true },
     picUrl: { type: String },
     description: { type: String, required: true },
-    price: { type: Number, required: true },
+    price: { type: Number, required: true }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 )
 

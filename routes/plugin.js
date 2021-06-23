@@ -10,7 +10,7 @@ module.exports = app => {
 
   // CREATE PLUGIN
   app.post('/plugins', (req, res) => {
-    var plugin = new Plugin(req.body)
+    const plugin = new Plugin(req.body)
     plugin.save().then(doc => {
       res.redirect('/')
     })
