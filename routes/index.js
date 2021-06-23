@@ -3,7 +3,6 @@ module.exports = app => {
   app.get('/', (req, res) => {
     Plugin.find().lean().then(plugins => {
       res.render('home', {
-        greeting: 'Hello, World!',
         plugins
       })
     })

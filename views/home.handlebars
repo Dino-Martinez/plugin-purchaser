@@ -3,12 +3,12 @@
   {{#each plugins}}
     <div class="card">
       <img src={{this.picUrl}} alt="placeholder">
-      <h2> <a href="/plugins/{{this._id}}">{{this.name}}</a> </h2>
+      <h2> <a class="card-title" href="/plugins/{{this._id}}">{{this.name}}</a> </h2>
       <h3>{{this.price}}</h3>
       <div class="card-description">
         <p>{{this.description}}</p>
       </div>
-      <div class="card-btn"> V </div>
+      <div class="card-btn"> <i class="fas fa-chevron-down"></i> </div>
     </div>
 
   {{/each}}

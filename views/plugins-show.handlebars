@@ -9,3 +9,28 @@
     <div class="card-btn"> V </div>
   </div>
 </section>
+
+<section>
+  <form class="" id="edit-plugin" action="/plugins/{{plugin._id}}?_method=PUT" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" value="" placeholder={{plugin.name}}>
+    </div>
+    <div class="form-group">
+      <label for="picUrl">Thumbnail URL</label>
+      <input type="text" name="picUrl" value="" placeholder={{plugin.picUrl}}>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" name="description" value="" placeholder={{plugin.description}}>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" name="price" value="" placeholder={{plugin.price}}>
+    </div>
+    <button type="submit" name="button">Update</button>
+  </form>
+  <form class="" id="delete-plugin" action="/plugins/{{plugin._id}}?_method=DELETE" method="POST">
+    <button type="submit" name="button">Delete</button>
+  </form>
+</section>
