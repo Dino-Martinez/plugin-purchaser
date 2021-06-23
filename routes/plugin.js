@@ -3,6 +3,22 @@ const Plugin = require('../models/plugin')
 
 // PLUGIN ROUTES
 module.exports = app => {
+  // SEARCH PLUGIN
+  app.get('/search', (req,res)=>{
+    const query = new RegExp(req.query.query, 'i')
+    Plugin.find({$or: [
+        {'name': query},
+        {'description': query}
+      ]
+    })
+    .lean()
+    .then(plugins => {
+      res.render('plugins-search', {
+        plugins
+      })
+    })
+  })
+
   // NEW PLUGIN
   app.get('/plugins/new', (req, res) => {
     res.render('plugins-new')
