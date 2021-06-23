@@ -117,3 +117,32 @@ nav {
   justify-content: space-around;
   align-items: center;
 }
+
+.form-group {
+  margin-top: 1rem;
+  text-align: left;
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+.form-group label {
+  margin-right: 1rem;
+}
+
+form > button {
+  margin-top: 1rem;
+  padding: .5rem 1rem .5rem 1rem;
+  text-transform: capitalize;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  background: #5EB4E5;
+}
+form > button:hover {
+  color: #5EB4E5;
+  border: 2px solid #5EB4E5;
+  background: #fff;
+  cursor:pointer;
+}
