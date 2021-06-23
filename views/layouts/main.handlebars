@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
+    <div class="alert" id="alert" style="display:none;">
+    </div>
     {{{body}}}
 
     <nav>
@@ -17,8 +18,12 @@
       <article class="nav-item">
         <a href="/search"><i class="fas fa-search nav-icon"></i></a>
       </article>
+      <article class="nav-item">
+        <a href="/plugins/new"><i class="fas fa-plus"></i></a>
+      </article>
     </nav>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" charset="utf-8"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" charset="utf-8"></script>
 <script src="/script.js" charset="utf-8"></script>
 </html>

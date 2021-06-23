@@ -28,7 +28,9 @@ module.exports = app => {
   app.post('/plugins', (req, res) => {
     const plugin = new Plugin(req.body)
     plugin.save().then(doc => {
-      res.redirect('/')
+      res.send({plugin: doc})
+    }).catch(err => {
+      res.status(400).send(err.errors)
     })
   })
 
