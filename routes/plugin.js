@@ -18,7 +18,7 @@ module.exports = app => {
 
   // SHOW PLUGIN
   app.get('/plugins/:id', (req, res) => {
-    Plugin.findById(req.params.id).then((plugin) => {
+    Plugin.findById(req.params.id).lean().then((plugin) => {
       res.render('plugins-show', { plugin: plugin })
     })
   })

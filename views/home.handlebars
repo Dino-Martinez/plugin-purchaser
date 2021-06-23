@@ -1,6 +1,15 @@
-<h1>{{greeting}}</h1>
-<ul>
+<h1>All Plugins</h1>
+<section class="row">
   {{#each plugins}}
-    <li>{{this}}</li>
+    <div class="card">
+      <img src={{this.picUrl}} alt="placeholder">
+      <h2> <a href="/plugins/{{this._id}}">{{this.name}}</a> </h2>
+      <h3>{{this.price}}</h3>
+      <div class="card-description">
+        <p>{{this.description}}</p>
+      </div>
+      <div class="card-btn"> V </div>
+    </div>
+
   {{/each}}
-</ul>
+</section>
