@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 const override = require('method-override')
 require('dotenv').config()
 const port = 3000
+const helmet = require('helmet')
+const compression = require('compression')
 
 // Set up default mongoose connection
 const mongoose = require('mongoose')
@@ -30,6 +32,16 @@ app.use(override('_method'))
 // Set View Engine and Middleware
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
+app.use(helmet.contentSecurityPolicy({
+   useDefaults: true,
+   directives: {
+     "script-src": ["'self'", "cdnjs.cloudflare.com", "code.jquery.com", "fontawesome.com", "*.fontawesome.com"],
+     "style-src": ["'self'", "fontawesome.com", "*.fontawesome.com", "'unsafe-inline'"],
+     "connect-src" : ["'self'", "fontawesome.com", "*.fontawesome.com"],
+     "img-src": ["'self'", "images.unsplash.com"]
+   },
+ }))
+ app.use(compression())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static('public'))
