@@ -1,4 +1,5 @@
-<section>
+<h1>Single Plugin</h1>
+<section class="single-card">
   <div class="card">
     <img src={{plugin.picUrl}} alt="placeholder">
     <h2>{{plugin.name}}</h2>
@@ -24,7 +25,7 @@
   </form>
 </section>
 
-<section>
+<section class="edit-form">
   <form class="" id="edit-plugin" action="/plugins/{{plugin._id}}?_method=PUT" method="POST">
     <div class="form-group">
       <label for="name">Name</label>

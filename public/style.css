@@ -38,6 +38,10 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(150px, 400px));
 }
 
+.single-card > .card {
+  width: 350px;
+}
+
 .card {
   background: #5EB4E5;
   border-radius: 35px;
@@ -145,4 +149,11 @@ form > button:hover {
   border: 2px solid #5EB4E5;
   background: #fff;
   cursor:pointer;
+}
+
+.edit-form {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
 }
