@@ -5,7 +5,6 @@ const app = express()
 const bodyParser = require('body-parser')
 const override = require('method-override')
 require('dotenv').config()
-const port = 3000
 const helmet = require('helmet')
 const compression = require('compression')
 
@@ -59,6 +58,4 @@ require('./routes/index.js')(app)
 require('./routes/plugin.js')(app)
 
 // Run development server
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || 3000)
